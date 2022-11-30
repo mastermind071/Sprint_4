@@ -1,4 +1,5 @@
 package Pages;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -26,67 +27,81 @@ public class OrderPage {
     private By fieldComment = By.xpath(".//div[@class='Input_InputContainer__3NykH']/input[@placeholder='Комментарий для курьера']");//локатор для поля "комментарий"
     private By finalOrder = By.xpath(".//div[@class='Order_Buttons__1xGrp']/button[@class='Button_Button__ra12g Button_Middle__1CSJM']");//локатор для кнопки "заказать" на последней странице оформления заказа
     private By acceptOrder = By.xpath(".//div[@class='Order_Modal__YZ-d3']/div[@class='Order_Buttons__1xGrp']/button[@class='Button_Button__ra12g Button_Middle__1CSJM']");//локатор для кнопки "да" на странице подтверждения офорлмения заказа
-    public OrderPage(WebDriver driver){
+
+    public OrderPage(WebDriver driver) {
         this.driver = driver;
     }
-    public void CookieAccept(){
+
+    public void cookieAccept() {
         driver.findElement(acceptCookie).click();//метод, который принимает куки
     }
-    public void ClickOrder(){
-        driver.findElement(orderButton).click() ;//метод, который нажимает на кнопку "заказать" на главной странице
+
+    public void clickOrder() {
+        driver.findElement(orderButton).click();//метод, который нажимает на кнопку "заказать" на главной странице
     }
-    public void FillingName(){
+
+    public void fillingName() {
         driver.findElement(fieldName).sendKeys(name);//метод , заполняющий поле имя - определенный значением
     }
-    public void FillingSurname(){
+
+    public void fillingSurname() {
         driver.findElement(fieldSurname).sendKeys(surname);//метод , заполняющий поле фамилия - определенный значением
     }
-    public void FillingAdress(){
+
+    public void fillingAdress() {
         driver.findElement(fieldAdress).sendKeys(adress);//метод , заполняющий поле адрес - определенный значением
     }
-    public void FillingStation(){
+
+    public void fillingStation() {
         driver.findElement(fieldStation).sendKeys("Бунинская аллея");
         driver.findElement(By.xpath("//div[@class='select-search__select']")).click();//метод, заполняющий поле станция метро и выбирает единственный полученый результат
     }
 
-    public void FillingNumber(){
+    public void fillingNumber() {
         driver.findElement(fieldNumber).sendKeys(number);//метод , заполняющий поле номер - определенный значением
     }
-    public void ClickNextPage(){
+
+    public void clickNextPage() {
         driver.findElement(nextButton).click();
         new WebDriverWait(driver, 60);//метод, который нажимает на кнопку следующей страницы оформления заказа и ожидает 60 секунд до появления следюущей страницы
     }
-    public void SelectCalendarDay(){
+
+    public void selectCalendarDay() {
         driver.findElement(fieldCalendar).sendKeys("30.11.2022");
         driver.findElement(selectThirdNovember).click();//метод который вводит определенную дату в поле календарь и кликает на нужный элемент на выпадающем календаре
     }
-    public void SelectRentTime(){
+
+    public void selectRentTime() {
         driver.findElement(closeRentalButton).click();
         driver.findElement(fieldRentalPeriod).click();//метод который кликает на поле "срок аренды" и выбирает последнее значение из выпадающего списка
     }
-    public void SelectColour(){
+
+    public void selectColour() {
         driver.findElement(blackColour).click();//метод который выбирает цвет самоката "черный жемчуг"
     }
-    public void WriteComment(){
+
+    public void writeComment() {
         driver.findElement(fieldComment).sendKeys(comment);//метод , заполняющий поле комментарий - определенный значением
     }
-    public void MakeOrder(){
+
+    public void makeOrder() {
         driver.findElement(finalOrder).click();
         new WebDriverWait(driver, 60);
         driver.findElement(acceptOrder).click();//метод, нажимающий на кнопку заказать на второй странице оформления заказа , после чего ожидает появления следующего элемента, и нажимающий на на кнопку "да" в окне подтверждения заказа
     }
 
-    public void FirstPageOrder(){
-        FillingName();
-        FillingSurname();
-        FillingAdress();
-        FillingStation();
-        FillingNumber();//метод, объединяющий методы для ввода имени, фамилии, адреса, станции метро, номера
+    public void firstPageOrder() {
+        fillingName();
+        fillingSurname();
+        fillingAdress();
+        fillingStation();
+        fillingNumber();//метод, объединяющий методы для ввода имени, фамилии, адреса, станции метро, номера
     }
-    public void SecondPageOrder(){
-        SelectCalendarDay();
-        SelectRentTime();
-        SelectColour();
-        WriteComment();//метод объединяющий методы для ввода даты , срока аренды , выбора цвета, написания комментария
+
+    public void secondPageOrder() {
+        selectCalendarDay();
+        selectRentTime();
+        selectColour();
+        writeComment();//метод объединяющий методы для ввода даты , срока аренды , выбора цвета, написания комментария
     }
 }
