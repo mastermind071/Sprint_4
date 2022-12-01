@@ -1,6 +1,6 @@
-package TestClass;
+package tests;
 
-import Pages.OrderPage;
+import pages.OrderPage;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.junit.After;

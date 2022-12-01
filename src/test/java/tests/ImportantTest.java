@@ -1,6 +1,6 @@
-package TestClass;
+package tests;
 
-import Pages.PageMain;
+import pages.PageMain;
 import org.junit.After;
 import org.junit.Test;
 import org.openqa.selenium.WebDriver;
